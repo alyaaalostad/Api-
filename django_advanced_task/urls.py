@@ -18,10 +18,16 @@ from django.urls import path
 from stores.views import store_list
 from django.conf.urls.static import static
 from django.conf import settings
+from stores.views import api_test, api_detail
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('list/', store_list, name='list'),
+    path('test/',api_test ),
+    path('test/detail/', api_detail, name="api-detail"),
+
 ]
 
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

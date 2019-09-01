@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	Height: {{r.height}} <br>
+	Experience: {{r.base_experience}} <br>
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class='card-title'>Species name:{{r.species.name}}</h5>
+					<p> Abilities: <p>
+						<ul>
+							{% for ability in r.abilities %}
+							<li>{{ability.ability.name}}</li>
+							{%endfor%}
+
+
+						</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+</body>
+</html>

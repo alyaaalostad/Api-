@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="row">
+		{% for result in results%}
+		<div class="col-12">
+			<div class="card-body">
+				<h5 class="card-title">{{result.name}}</h5>
+
+				<form action="{% url 'api-detail' %}">
+					<input type="hidden" value="{{result.url}}" name="detail">
+					<button type="submit" class="btn btn-primary">Read More</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	{%endfor%}
+
+					<form action="{% url 'api-detail' %}">
+					<a href="{{next.url}}" name="detail">Next</button>
+					</form>
+					<form action="{% url 'api-detail' %}">
+					<a href="{{previous.url}}" name="detail">Previous</button>
+					</form>
+</div>
+</body>
+</html>
