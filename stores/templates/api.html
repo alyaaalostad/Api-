@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div class="row">
-		{% for result in results%}
+		{% for result in results %}
 		<div class="col-12">
 			<div class="card-body">
 				<h5 class="card-title">{{result.name}}</h5>
@@ -19,13 +19,20 @@
 		</div>
 	</div>
 	{%endfor%}
+		{% if next %}
+			<form action="{% url 'api-list' %}">
+				<input type="hidden" value="{{next}}" name="n">
+				<button type="submit" class="btn btn-primary">Next</button>
+			</form>
+		{%endif%}
 
-					<form action="{% url 'api-detail' %}">
-					<a href="{{next.url}}" name="detail">Next</button>
-					</form>
-					<form action="{% url 'api-detail' %}">
-					<a href="{{previous.url}}" name="detail">Previous</button>
-					</form>
+		{% if previous %}
+			<form action="{% url 'api-list' %}">
+				<input type="hidden" value="{{previous}}" name="p">
+				<button type="submit" class="btn btn-primary">Previous</button>
+			</form>	
+	
+		{%endif%}
 </div>
 </body>
 </html>

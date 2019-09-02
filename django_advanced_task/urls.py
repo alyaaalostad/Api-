@@ -25,7 +25,7 @@ from stores.views import api_test, api_detail
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('list/', store_list, name='list'),
-    path('test/',api_test ),
+    path('test/',api_test, name="api-list" ),
     path('test/detail/', api_detail, name="api-detail"),
 
 ]

@@ -19,7 +19,17 @@ def store_detail(request, store_id):
 
 def api_test(request):
 	url= "https://pokeapi.co/api/v2/pokemon/"
-	response = requests.get(url).json()
+
+	nxt= request.GET.get('n')
+	prv=request.GET.get('p')
+
+	if nxt:
+		response = requests.get(nxt).json()
+	elif prv:
+		response = requests.get(prv).json()
+	else:
+		response = requests.get(url).json()
+
 	context={
 
 		"results": response["results"],
